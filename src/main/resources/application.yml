@@ -13,6 +13,9 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+  security:
+    user.name: "sandeep"
+    user.password: "root"      
 server:
   port: 8080    
      
