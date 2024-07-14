@@ -14,8 +14,11 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
   security:
-    user.name: "sandeep"
-    user.password: "root"      
+    # user.name: "sandeep"
+    # user.password: "root"
+    jwt:
+      secret-key: 271d05b82f97e8fa070f913c85544e2c9d9e8e5851bb3821976dbaf8510a3835
+      expiration-time: 3600000 
 server:
   port: 8080    
      
