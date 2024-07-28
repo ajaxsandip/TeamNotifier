@@ -1,6 +1,7 @@
 package com.team.team.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -33,7 +34,8 @@ public class EmployeeService {
         return employeeList.stream().map(this::buildEmployeeDTO).toList();            
     }
 
-    public EmployeeDTO buildEmployeeDTO(Employee employee){
+
+    private EmployeeDTO buildEmployeeDTO(Employee employee){
         return EmployeeDTO.builder()
                 .name(employee.getName())
                 .dob(employee.getDob())
@@ -43,4 +45,5 @@ public class EmployeeService {
                 .phoneNumber(employee.getPhoneNumber())
                 .build();
     }
+    
 }

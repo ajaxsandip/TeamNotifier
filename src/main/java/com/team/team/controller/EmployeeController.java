@@ -18,9 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
-@RestController
 @RequestMapping("/v1/employees")
+@RestController
 public class EmployeeController {
     
     @Autowired

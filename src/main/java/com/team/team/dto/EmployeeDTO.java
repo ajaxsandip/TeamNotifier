@@ -32,6 +32,8 @@ public class EmployeeDTO {
     private String emailId;
     @NotBlank(message = "Phone Number is Required.")
     private String phoneNumber;
+    @NotBlank(message = "Password is Required.")
+    private String password;
     
     
 }
