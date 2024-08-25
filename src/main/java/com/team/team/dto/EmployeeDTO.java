@@ -1,6 +1,7 @@
 package com.team.team.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -31,7 +32,7 @@ public class EmployeeDTO {
     @NotBlank(message = "Email is Required.")
     private String emailId;
     @NotBlank(message = "Phone Number is Required.")
-    private String phoneNumber;
+    private List<Long> phoneNumbers;
     @NotBlank(message = "Password is Required.")
     private String password;
     

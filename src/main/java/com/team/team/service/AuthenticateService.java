@@ -1,5 +1,11 @@
 package com.team.team.service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,13 +30,15 @@ public class AuthenticateService {
     }
 
     public Employee signup(EmployeeDTO employeeDTORequest) {
+        List<Long> phoneNumbers = Optional.ofNullable(employeeDTORequest.getPhoneNumbers()).map(List::stream)
+                .orElseGet(Stream::empty).collect(Collectors.toList());
         Employee employee = Employee.builder()
                 .name(employeeDTORequest.getName())
                 .dob(employeeDTORequest.getDob())
                 .doj(employeeDTORequest.getDoj())
                 .emailID(employeeDTORequest.getEmailId())
                 .squad(employeeDTORequest.getSquad())
-                .phoneNumber(employeeDTORequest.getPhoneNumber())
+                .phoneNumbers(phoneNumbers)
                 .password(passwordEncoder.encode(employeeDTORequest.getPassword()))
                 .build();
         return teamRepository.save(employee);

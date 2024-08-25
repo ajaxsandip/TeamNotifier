@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,7 +24,6 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Builder
 public class Employee implements UserDetails{
 
@@ -36,7 +36,8 @@ public class Employee implements UserDetails{
     private LocalDate doj;
     private String emailID;
     private String password;
-    private String phoneNumber;
+    @ElementCollection
+    private List<Long> phoneNumbers;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
